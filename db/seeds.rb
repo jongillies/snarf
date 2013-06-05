@@ -1,7 +1,14 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+YAML::load_file('db/seeds/data_sources.yml').each do |data_source|
+  ds = DataSource.find_or_create_by_name(data_source, :without_protection => true)
+  puts "DataSource> #{ds.name}"
+end
+
+YAML::load_file('db/seeds/export_records.yml').each do |export_record|
+  er = ExportRecord.find_or_create_by_id(export_record, :without_protection => true)
+  puts "ExportRecord> #{er.created_at}"
+end
+
+YAML::load_file('db/seeds/blobs.yml').each do |blob|
+  b = Blob.find_or_create_by_id(blob, :without_protection => true)
+  puts "Blob> #{b.created_at}"
+end

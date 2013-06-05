@@ -1,4 +1,13 @@
 Snarf::Application.routes.draw do
+  resources :blobs
+
+
+  resources :export_records
+
+
+  resources :data_sources
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +57,7 @@ Snarf::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'data_sources#index'
 
   # See how all your routes lay out with "rake routes"
 
