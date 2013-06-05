@@ -1,6 +1,6 @@
 class ApiV2 < Grape::API
   prefix 'api'
-  version 'v2', using: :path
+  version 'v2', using: :param
   format :json
 
   mount Acme::Ping2

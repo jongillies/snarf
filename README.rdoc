@@ -59,3 +59,11 @@ When using the "path" option:
   $ curl http://localhost:3000/api/v2/ping
   {"ping":"pong2"}
 
+When using the "param" option:
+
+  version 'v1', using: :param
+
+  $ curl http://localhost:3000/api/ping?apiver=v1
+  {"ping":"pong"}
+  $ curl http://localhost:3000/api/ping?apiver=v2
+  {"ping":"pong2"}
