@@ -78,3 +78,14 @@ When using the "header" option:
   {"ping":"pong"}
   $ curl -H Accept=application/vnd.thundercats-v2+json http://localhost:3000/api/ping
   {"ping":"pong"}
+
+When using the "accept_header" option:
+
+  version 'v1', using: :accept_version_header
+
+  DOES NOT WORK
+
+  $ curl -H "Accept-Version=v1" http://localhost:3000/api/ping
+  {"ping":"pong"}
+  $ curl -H "Accept-Version=v2" http://localhost:3000/api/ping
+  {"ping":"pong"}

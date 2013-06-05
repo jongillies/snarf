@@ -1,6 +1,6 @@
 class ApiV1 < Grape::API
   prefix 'api'
-  version 'v1', using: :header, vendor: 'thundercats'
+  version 'v1', using: :accept_version_header
   format :json
 
   mount Acme::Ping
