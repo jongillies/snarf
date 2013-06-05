@@ -48,4 +48,44 @@ http://localhost:3000/export_records
 http://localhost:3000/blobs
 
 
+== API Testing
 
+When using the "path" option:
+
+  version 'v1', using: :path
+
+  $ curl http://localhost:3000/api/v1/ping
+  {"ping":"pong"}
+  $ curl http://localhost:3000/api/v2/ping
+  {"ping":"pong2"}
+
+When using the "param" option:
+
+  version 'v1', using: :param
+
+  $ curl http://localhost:3000/api/ping?apiver=v1
+  {"ping":"pong"}
+  $ curl http://localhost:3000/api/ping?apiver=v2
+  {"ping":"pong2"}
+
+When using the "header" option:
+
+  version 'v1', using: :header, vendor: 'thundercats'
+
+  DOES NOT WORK
+
+  $ curl -H Accept=application/vnd.thundercats-v1+json http://localhost:3000/api/ping
+  {"ping":"pong"}
+  $ curl -H Accept=application/vnd.thundercats-v2+json http://localhost:3000/api/ping
+  {"ping":"pong"}
+
+When using the "accept_header" option:
+
+  version 'v1', using: :accept_version_header
+
+  DOES NOT WORK
+
+  $ curl -H "Accept-Version=v1" http://localhost:3000/api/ping
+  {"ping":"pong"}
+  $ curl -H "Accept-Version=v2" http://localhost:3000/api/ping
+  {"ping":"pong"}
