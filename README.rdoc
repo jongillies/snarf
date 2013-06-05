@@ -74,9 +74,9 @@ When using the "header" option:
 
   DOES NOT WORK
 
-  $ curl -H Accept=application/vnd.thundercats-v1+json http://localhost:3000/api/ping
+  $ curl -H "Accept: application/vnd.thundercats-v1+json" http://localhost:3000/api/ping
   {"ping":"pong"}
-  $ curl -H Accept=application/vnd.thundercats-v2+json http://localhost:3000/api/ping
+  $ curl -H "Accept: application/vnd.thundercats-v2+json" http://localhost:3000/api/ping
   {"ping":"pong"}
 
 When using the "accept_header" option:
@@ -89,3 +89,5 @@ When using the "accept_header" option:
   {"ping":"pong"}
   $ curl -H "Accept-Version=v2" http://localhost:3000/api/ping
   {"ping":"pong"}
+
+
