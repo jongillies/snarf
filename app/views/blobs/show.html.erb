@@ -5,6 +5,10 @@
   <%= @blob.checksum %>
 </p>
 
+<p>
+  <b>Data:</b>
+  <%= @blob.data %>
+</p>
 
 <%= link_to 'Edit', edit_blob_path(@blob) %> |
 <%= link_to 'Back', blobs_path %>

@@ -11,12 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130605172934) do
+ActiveRecord::Schema.define(:version => 20130605200209) do
 
   create_table "blobs", :force => true do |t|
     t.text     "checksum",   :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.text     "data"
   end
 
   add_index "blobs", ["checksum"], :name => "index_blobs_on_checksum", :unique => true
