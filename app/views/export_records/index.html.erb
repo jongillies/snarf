@@ -1,0 +1,27 @@
+<h1>Listing export_records</h1>
+
+<table>
+  <tr>
+    <th>Data source</th>
+    <th>Primary key</th>
+    <th>Checksum</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @export_records.each do |export_record| %>
+  <tr>
+    <td><%= export_record.data_source_id %></td>
+    <td><%= export_record.primary_key %></td>
+    <td><%= export_record.checksum %></td>
+    <td><%= link_to 'Show', export_record %></td>
+    <td><%= link_to 'Edit', edit_export_record_path(export_record) %></td>
+    <td><%= link_to 'Destroy', export_record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Export record', new_export_record_path %>

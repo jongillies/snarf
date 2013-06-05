@@ -1,0 +1,21 @@
+<%= form_for(@blob) do |f| %>
+  <% if @blob.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@blob.errors.count, "error") %> prohibited this blob from being saved:</h2>
+
+      <ul>
+      <% @blob.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :checksum %><br />
+    <%= f.text_area :checksum %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

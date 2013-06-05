@@ -34,4 +34,18 @@ association, but I don't know how to code that up.
 
 == Getting Started
 
+git clone
+cd snarf
+bundle
+
+rake db:migrate
+rake db:seed
+
+rails s
+
+http://localhost:3000/data_sources
+http://localhost:3000/export_records
+http://localhost:3000/blobs
+
+
 

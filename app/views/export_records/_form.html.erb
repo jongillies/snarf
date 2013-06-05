@@ -1,0 +1,29 @@
+<%= form_for(@export_record) do |f| %>
+  <% if @export_record.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@export_record.errors.count, "error") %> prohibited this export_record from being saved:</h2>
+
+      <ul>
+      <% @export_record.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :data_source_id %><br />
+    <%= f.number_field :data_source_id %>
+  </div>
+  <div class="field">
+    <%= f.label :primary_key %><br />
+    <%= f.text_field :primary_key %>
+  </div>
+  <div class="field">
+    <%= f.label :checksum %><br />
+    <%= f.text_field :checksum %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
