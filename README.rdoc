@@ -67,3 +67,14 @@ When using the "param" option:
   {"ping":"pong"}
   $ curl http://localhost:3000/api/ping?apiver=v2
   {"ping":"pong2"}
+
+When using the "header" option:
+
+  version 'v1', using: :header, vendor: 'thundercats'
+
+  DOES NOT WORK
+
+  $ curl -H Accept=application/vnd.thundercats-v1+json http://localhost:3000/api/ping
+  {"ping":"pong"}
+  $ curl -H Accept=application/vnd.thundercats-v2+json http://localhost:3000/api/ping
+  {"ping":"pong"}
