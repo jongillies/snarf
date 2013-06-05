@@ -1,6 +1,6 @@
 class ApiV2 < Grape::API
   prefix 'api'
-  version 'v2' #, using: :header, vendor: 'twitter'
+  version 'v2', using: :path
   format :json
 
   mount Acme::Ping2
