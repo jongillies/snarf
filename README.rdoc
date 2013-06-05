@@ -34,7 +34,7 @@ association, but I don't know how to code that up.
 
 == Getting Started
 
-git clone
+git clone https://github.com/jongillies/snarf.git snarf
 cd snarf
 bundle
 
