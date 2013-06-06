@@ -4,5 +4,8 @@ class ExportRecord < ActiveRecord::Base
   validates_presence_of :checksum, :data_source_id, :primary_key
 
   belongs_to :data_source
+  belongs_to :export_run
+
+  belongs_to :blob, foreign_key: :checksum
 
 end

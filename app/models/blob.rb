@@ -3,4 +3,10 @@ class Blob < ActiveRecord::Base
 
   validates :checksum, :presence => true, :uniqueness => true
 
+  set_primary_key :checksum
+
+  has_many :export_records, foreign_key: :checksum
+
+  has_many :data_sources, through: :export_records
+
 end

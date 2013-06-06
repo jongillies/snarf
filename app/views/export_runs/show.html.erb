@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Data source:</b>
+  <%= @export_run.data_source_id %>
+</p>
+
+<p>
+  <b>Started at:</b>
+  <%= @export_run.started_at %>
+</p>
+
+<p>
+  <b>Finished at:</b>
+  <%= @export_run.finished_at %>
+</p>
+
+<p>
+  <b>Record count:</b>
+  <%= @export_run.record_count %>
+</p>
+
+<p>
+  <b>Duration:</b>
+  <%= @export_run.duration %>
+</p>
+
+
+<%= link_to 'Edit', edit_export_run_path(@export_run) %> |
+<%= link_to 'Back', export_runs_path %>

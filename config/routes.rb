@@ -1,4 +1,7 @@
 Snarf::Application.routes.draw do
+  resources :export_runs
+
+
   resources :blobs
 
 

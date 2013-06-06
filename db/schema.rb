@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130605200209) do
+ActiveRecord::Schema.define(:version => 20130606162022) do
 
   create_table "blobs", :force => true do |t|
     t.text     "checksum",   :null => false
@@ -32,6 +32,18 @@ ActiveRecord::Schema.define(:version => 20130605200209) do
     t.integer  "data_source_id", :null => false
     t.string   "primary_key",    :null => false
     t.string   "checksum",       :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.integer  "export_run_id"
+    t.integer  "record_size"
+  end
+
+  create_table "export_runs", :force => true do |t|
+    t.integer  "data_source_id"
+    t.datetime "started_at"
+    t.datetime "finished_at"
+    t.integer  "record_count"
+    t.integer  "duration"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
   end

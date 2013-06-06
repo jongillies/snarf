@@ -12,3 +12,8 @@ YAML::load_file('db/seeds/blobs.yml').each do |blob|
   b = Blob.find_or_create_by_id(blob, :without_protection => true)
   puts "Blob> #{b.created_at}"
 end
+
+YAML::load_file('db/seeds/export_runs.yml').each do |export_run|
+  er = ExportRun.find_or_create_by_id(export_run, :without_protection => true)
+  puts "ExportRun> #{er.created_at}"
+end

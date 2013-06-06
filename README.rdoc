@@ -32,6 +32,29 @@ And a blob may belong to numerous export records.
 Since the "key" is the checksum, I don't think I need an intersection table for the
 association, but I don't know how to code that up.
 
+Well.. this seemed to work.  Here is the export_record accociation:
+
+  belongs_to :blob, foreign_key: :checksum
+
+And the blob association:
+
+  has_many :export_records, foreign_key: :checksum
+
+So after a "rake db:seed" this seems to work:
+
+    irb(main):006:0> er = ExportRecord.first
+      ExportRecord Load (0.2ms)  SELECT "export_records".* FROM "export_records" LIMIT 1
+    => #<ExportRecord id: 1, data_source_id: 1, primary_key: "1", checksum: "e5fa44f2b31c1fb553b6021e7360d07d5d91ff5e", created_at: "2013-06-05 21:42:15", updated_at: "2013-06-05 21:42:15">
+    irb(main):007:0> er.blob.data
+      Blob Load (0.2ms)  SELECT "blobs".* FROM "blobs" WHERE "blobs"."checksum" = 'e5fa44f2b31c1fb553b6021e7360d07d5d91ff5e' LIMIT 1
+    => "data_one"
+    irb(main):008:0> b = Blob.first
+      Blob Load (0.2ms)  SELECT "blobs".* FROM "blobs" LIMIT 1
+    => #<Blob id: 1, checksum: "e5fa44f2b31c1fb553b6021e7360d07d5d91ff5e", created_at: "2013-06-05 21:42:15", updated_at: "2013-06-05 21:42:15", data: "data_one">
+    irb(main):009:0> b.export_records.count
+       (0.2ms)  SELECT COUNT(*) FROM "export_records" WHERE "export_records"."checksum" = 'e5fa44f2b31c1fb553b6021e7360d07d5d91ff5e'
+    => 4
+
 == Getting Started
 
 git clone https://github.com/jongillies/snarf.git snarf

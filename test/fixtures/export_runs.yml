@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  data_source_id: 1
+  started_at: 2013-06-06 09:08:40
+  finished_at: 2013-06-06 09:08:40
+  record_count: 1
+  duration: 1
+
+two:
+  data_source_id: 1
+  started_at: 2013-06-06 09:08:40
+  finished_at: 2013-06-06 09:08:40
+  record_count: 1
+  duration: 1

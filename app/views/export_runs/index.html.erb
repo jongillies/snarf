@@ -1,0 +1,31 @@
+<h1>Listing export_runs</h1>
+
+<table>
+  <tr>
+    <th>Data source</th>
+    <th>Started at</th>
+    <th>Finished at</th>
+    <th>Record count</th>
+    <th>Duration</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @export_runs.each do |export_run| %>
+  <tr>
+    <td><%= export_run.data_source_id %></td>
+    <td><%= export_run.started_at %></td>
+    <td><%= export_run.finished_at %></td>
+    <td><%= export_run.record_count %></td>
+    <td><%= export_run.duration %></td>
+    <td><%= link_to 'Show', export_run %></td>
+    <td><%= link_to 'Edit', edit_export_run_path(export_run) %></td>
+    <td><%= link_to 'Destroy', export_run, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Export run', new_export_run_path %>
